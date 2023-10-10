@@ -80,24 +80,26 @@ Node root;
 		
 	}
 	Node buscar(Node root, int valor) {
+		// se o nó estiver vazio
 		if(root == null) {
+			//retorna nulo
 			return null;
 		}
+		//se  o valor buscado for igual a raiz, retorna a raiz
 		if(valor == root.info) {
 			return root;
 		}else {
+			//se não, se o valor for maior que a raiz, busca para o lado direito
+			
 			if(valor > root.info){
+				//retorna chamando o metodo
 				return buscar(root.right, valor);
 				
-			//	if(valor == root.right.info) {
-					//resultado = root.left;
-				//}
+			
 				
-			}else {
+			}else {// se nao, busca a esquerda
 				return buscar(root.left, valor);
-				//if(valor == root.left.info) {
-					//resultado = root.left;
-				//}
+				
 
 			}
 		}
@@ -105,7 +107,9 @@ Node root;
 		
 	}
 	Node minimum(Node root) {
+		// se o nó a esquerda da raiz não estiver nulo
 		if(root.left != null) {
+			//retorna chamando o metodo de novo, e procura o menor numero do lado esquerdo
 			return minimum(root.left);
 		}
 		return root;
@@ -174,4 +178,45 @@ Node root;
 				node1.info = sucessor.info;
 		}
 	}
+
+
+	Node rotacaoSimples(Node root) {
+		//caso 1: FB do root é +2 e do filho direito do root +1
+		Node right = root.right;
+		root.right = right.left;
+		right.left.parent = root;
+		right.left = root;
+		root.parent = right;
+		return right;
+	}
+	
+	int height() {
+		return height(root);
+	}
+	int height(Node root) {
+	
+		int h_left = 0;
+		int h_right = 0;
+		int maior = 0;
+		
+		if(root == null){
+			return -1;
+		}
+		
+		h_left = height(root.left);
+		h_right = height(root.right);
+
+		if(h_left > h_right){
+			
+			maior = h_left;
+			
+		}else{
+			
+			maior = h_right;
+			
+		}
+		return maior +1;
+	}
+
+
 }
