@@ -18,6 +18,17 @@ onde os valores da subárvore a esquerda são menores que a raiz e os valores da
 - remover( );
 - height( );
 
+## Grafos
+Grafos são estruturas de dados que representam relações entre objetos. Eles são compostos por vértices e arestas. 
+Os vértices representam objetos e as arestas representam relações entre objetos.
+
+### Métodos
+- adicionarAresta( );
+- adicionarVertice( );
+- buscaLargura( );
+- buscaProdfundidade( );
+- ...
+
 
 
 
